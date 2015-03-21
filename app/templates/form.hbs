@@ -1,0 +1,46 @@
+<form class="form_content" {{action 'submitForm' on='submit'}}>
+	<div class="form_header">Energy Consumption Form</div>
+	<div class="question_conainer">
+		<div class="question_line">How many hours per day are you at home?</div>
+		<div class="answer_line">
+			{{input class="hour_box" value=formData.timeCount placeholder="0 - 24"}}
+			{{#if timeError}}
+				<span class="inline_error">Please enter a number between 0 and 24</span>
+			{{else}}
+			{{/if}}
+		</div>
+	</div>
+	<div class="question_conainer">
+		<div class="question_line">What town do you live in?</div>
+		<div class="answer_line">
+			{{input class="town_box" value=formData.place placeholder="Place"}}
+			{{#if placeError}}
+				<span class="inline_error">Please enter your place</span>
+			{{else}}
+			{{/if}}
+		</div>
+	</div>
+	<div class="question_conainer type_conainer">
+		<div class="question_line" style="line-height: 100px;">What kind of home do you live in?</div>
+		<div class="answer_line">
+			<div class="type_container">
+				<div class="house_type home_type"></div>
+				<div class="type_text">HOUSE</div>
+			</div>
+			<div class="type_container">
+				<div class="building_type home_type"></div>
+				<div class="type_text">BULDING</div>
+			</div>
+			<div class="type_container">
+				<div class="igloo_type home_type"></div>
+				<div class="type_text">IGLOO</div>
+			</div>
+		</div>
+	</div>
+	{{#if formError}}
+		<div class="error_div">Error in form information.</div>
+	{{else}}
+		<div class="error_div"></div>
+	{{/if}}
+	<div {{action 'submitForm'}} class="submit_btn">Submit</div>
+</form>

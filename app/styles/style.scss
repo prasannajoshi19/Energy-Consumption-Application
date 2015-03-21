@@ -1,0 +1,228 @@
+$icon-font-path: "../styles/fonts/"; // Change the path to the fonts
+@import "bootstrap-sass-official/vendor/assets/stylesheets/bootstrap";
+
+/* varibales */
+$headerColor: #182C36;
+$headerTextColor: #F3EFE0;
+$typeBackground: #597F94;
+
+/* mixins */
+@mixin border-radius($topLeft, $topRight, $bottomRight, $bottomLeft) {
+	border-top-left-radius: $topLeft;
+	border-top-right-radius: $topRight;
+	border-bottom-right-radius: $bottomRight;
+	border-bottom-left-radius: $bottomLeft;
+}
+
+/* Put your CSS here */
+.container {
+	height: 100%;
+    width: 100%;
+    overflow: hidden;
+    font-family: Arial, freesans, sans-serif;
+    padding: 0 !important;
+}
+html, body {
+    @extend .container;
+}
+.loading_div {
+	background: url(../images/loading.gif) no-repeat;
+	background-position: 50% 50%;
+}
+.wrapper {
+	width:1000px;
+	height:100%;
+	margin:0px auto;
+}
+.home_container {
+	@extend .container;
+	.home_header {
+		position:fixed;
+		width:100%;
+		.home_title {
+			width: 100%;
+			height: 50px;
+			background-color: $headerColor;
+			color: $headerTextColor;
+			line-height: 50px;
+			text-align: center;
+			font-size: 18px;
+			.home_dropdown {
+				width:200px;
+				float:right;
+				margin-top:15px;
+				color:black;
+				font-size:13px;
+			}
+		}
+	}
+}
+input:focus, a:focus {
+	outline:0 !important;
+}
+.home_content {
+	width: 100%;
+	overflow: hidden;
+	margin-top: 50px;
+	height: 550px;
+	color: black;
+	.generic_content {
+		height:100%;
+		width: 100%;
+		padding-top: 20px;
+		box-sizing: border-box;
+	}
+	.generic_header {
+		float: left;
+		width: 100%;
+		height: 20px;
+		font-size: 16px;
+		text-align: center;
+	}
+	.generic_btn {
+		float: left;
+		width: 150px;
+		color: $headerTextColor;
+		height: 30px;
+		line-height: 30px;
+		text-align: center;
+		cursor: pointer;
+		background-color: $headerColor;
+		@include border-radius(5px, 5px, 5px, 5px);
+	}
+	.form_content {
+		@extend .generic_content;
+		.form_header {
+			@extend .generic_header;
+		}
+		.error_div {
+			float: left;
+			width: 100%;
+			margin-top: 20px;
+			height: 30px;
+			color: red;
+			line-height: 30px;
+			text-align: center;
+		}
+		.submit_btn {
+			@extend .generic_btn;
+			margin: 10px 425px;
+		}
+		.type_conainer {
+			height: 120px;
+		}
+		.question_conainer {
+			float: left;
+			width: 100%;
+			margin-top: 30px;
+			.generic_line {
+				width: 490px;
+				height: 28px;
+				line-height: 28px;
+				box-sizing: border-box;
+			}
+			.question_line{
+				@extend .generic_line;
+				float: left;
+				text-align: right;
+			}
+			.answer_line {
+				@extend .generic_line;
+				float: right;
+				.box {
+					@include border-radius(5px, 5px, 5px, 5px);
+					height:28px;
+					padding:2px;
+					box-sizing: border-box;
+				}
+				.hour_box {
+					@extend .box;
+					width: 80px;
+				}
+				.town_box {
+					@extend .box;
+					width: 150px;
+				}
+				.inline_error {
+					color: red;
+					margin-left: 5px;
+				}
+				.type_container {
+					height: 120px !important;
+					width: 100px;
+					float: left;
+					margin-right:20px;
+					.type_text {
+						width: 100px;
+						height: 20px;
+						line-height: 20px;
+						float: left;
+						text-align: center;
+						color: black;
+						font-size: 14px;
+					}
+					.home_type {
+						height: 100px;
+						width: 100px;
+						float: left;
+						background-color: $typeBackground;
+						background-repeat: no-repeat;
+						background-size: 100%;
+						@include border-radius(5px, 5px, 5px, 5px);
+						cursor: pointer;
+					}
+					.home_type:hover {
+						background-color: $headerColor;
+					}
+					.selected_type {
+						background-color: $headerColor;
+					}
+					.house_type {
+						background-image: url(../images/house-icon.png);
+					}
+					.building_type {
+						background-image: url(../images/building-icon.png);
+					}
+					.igloo_type {
+						background-image: url(../images/igloo-icon.png);
+					}
+				}
+			}
+		}
+	}
+	.graph_content {
+		@extend .generic_content;
+		.graph_header {
+			@extend .generic_header;
+		}
+		.input_container {
+			float: left;
+			height: 30px;
+			width: 100%;
+			margin-top: 20px;
+			.input_param {
+				float:left;
+				min-width: 250px;
+				max-width: 250px;
+			}
+			.form_btn {
+				@extend .generic_btn;
+				margin-left: 50px;
+			}
+		}
+		.graph_container {
+			float: left;
+			height: 400px;
+			width: 600px;
+			margin-left: 200px;
+			box-sizing: border-box;
+			margin-top: 30px;
+			border: 1px solid $headerColor;
+			padding: 20px;
+		}
+		.chart {
+			height: 100%;
+			width: 100%;
+		}
+	}
+}

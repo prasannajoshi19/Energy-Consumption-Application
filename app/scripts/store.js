@@ -1,0 +1,1 @@
+Energy.ApplicationAdapter = DS.FixtureAdapter;
